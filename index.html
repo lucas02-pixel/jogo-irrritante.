@@ -11,7 +11,17 @@
     <link rel="stylesheet" href="style.css">
     <title>jogo irritante</title>
 </head>
-
+<script>
+  // Sinaliza para o CrazyGames que o jogo está pronto
+  window.addEventListener('load', function() {
+    setTimeout(() => {
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: 'crazygames-sdk-game-ready' }, '*');
+        console.log('[CrazyGames] Jogo marcado como READY');
+      }
+    }, 2000);
+  });
+</script>
 <body>
     <div class="container">
         <div class="container__conteudo">

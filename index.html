@@ -22,6 +22,19 @@
     }, 2000);
   });
 </script>
+    <script src="https://sdk.crazygames.com/crazy-sdk-v2.min.js"></script>
+<script>
+  crazygames.on('sdkReady', () => {
+    // Salva no playerStorage que o jogo já foi jogado
+    crazygames.playerStorage.set('jogoJogado', true)
+      .then(() => {
+        console.log('Progresso "jogoJogado" salvo com sucesso.');
+      })
+      .catch(() => {
+        console.error('Erro ao salvar progresso "jogoJogado".');
+      });
+  });
+</script>
 <body>
     <div class="container">
         <div class="container__conteudo">
